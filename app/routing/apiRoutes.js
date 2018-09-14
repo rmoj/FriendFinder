@@ -9,7 +9,7 @@ module.exports = function(app) {
     var bestMatch = {
       name: '',
       photo: '',
-      difference: 100
+      difference: 1000
     };
 
     var user = req.body;
@@ -32,10 +32,10 @@ module.exports = function(app) {
         bestMatch.photo = friend.photo;
         bestMatch.difference = totalDifference;
       }
-
-      friends.push(user);
-
-      res.json(bestMatch);
     });
+
+    friends.push(user);
+
+    res.json(bestMatch);
   });
 };
